@@ -71,7 +71,7 @@ ZSH_THEME="ys"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git tmux)
+plugins=(git tmux zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -103,7 +103,7 @@ source $ZSH/oh-my-zsh.sh
 
 export PATH=${SCALA_HOME}/bin:${SPARK_HOME}/bin:${HADOOP_HOME}/bin:${FLUME_HOME}/bin:${ZOOKEEPER_HOME}/bin:${KAFKA_HOME}/bin:${HBASE_HOME}/bin:${SQOOP_HOME}/bin:${PIG_HOME}/bin:${HIVE_HOME}/bin:${MAHOUT_HOME}/bin:$PATH
 
-source ~/.oh-my-zsh/plugins/incr/incr-0.2.zsh
+#source ~/.oh-my-zsh/plugins/incr/incr-0.2.zsh
 alias tmux="TERM=screen-256color-bce tmux"
 export EDITOR=/usr/bin/vim
 set mouse=a
@@ -113,11 +113,15 @@ alias make_rtt="scons -c && scons -j24 && ./mkimage.sh"
 #alias make_rtt="scons -j24"
 alias make_clean_rtt="scons -c"
 alias make_menuconfig_rtt="scons --menuconfig"
+alias check_file= "../../../tools/as.sh"
+alias make_m1_defconfig_rtt="cp board/m1_slt/defconfig ./ &&  rm .config && mv defconfig .config"
+alias make_rk2108_defconfig_rtt="cp board/rk2108_slt/defconfig ./ &&  rm .config && mv defconfig .config"
+alias make_save_defconfig_rtt="rm ./board/m1_slt/defconfig &&  cp .config ./board/m1_slt && mv ./board/m1_slt/.config ./board/m1_slt/defconfig"
 alias make_slt_rv1126="make ARCH=arm rv1126-tps549b22-slt.img -j24"
 alias make_save_deconfig_rv1126="make ARCH=arm savedefconfig && mv defconfig arch/arm/configs/rv1126_slt_defconfig"
 alias make_2108d_mb="make ARCH=arm64 rk1808-slt-mb-v11-rk2108d.img -j24"
 alias make_rtt_rk2108d="scons -c && ./build.sh"
 
 [[ -s /home/leonardo.guo/.autojump/etc/profile.d/autojump.sh  ]] && source /home/leonardo.guo/.autojump/etc/profile.d/autojump.sh
-
+alias ctag_file="ctags -R --c++-kinds=+p --fields=+iaS --extra=+q"
 
